@@ -7,7 +7,7 @@ router = express.Router()
 #requestLogger = middlewares.requestLogger
 
 
-router.post '/1/tasties/',  (req, res) ->
+router.post '/1/tasties',  (req, res) ->
   name = req.param('name');
   desc = req.param('desc');
   tags = req.param('tags');
@@ -23,7 +23,7 @@ router.post '/1/tasties/',  (req, res) ->
       return res.send 500
     res.send 200, JSON.stringify(result)
 
-router.get '/1/tasties/', (req, res) ->
+router.get '/1/tasties', (req, res) ->
   api.tasties (err, results)->
     if err
       return res.send 500
