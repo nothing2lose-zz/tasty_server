@@ -1,3 +1,4 @@
+textSearch = require('mongoose-text-search')
 Schema = MGS.Schema
 sch = new Schema({
   name : { type: String, 'default': "", required:true}
@@ -11,6 +12,13 @@ sch = new Schema({
   #image : { type: Schema.ObjectId, ref : "TImage", index: { unique: true, sparse: true } , 'default': null }
   image : { type: Schema.ObjectId, ref : "TImage", index: true , 'default': null }
 });
+
+sch.plugin(textSearch)
+sch.index({
+  name: "text"
+  desc: "text"
+  tags: "text"
+})
 
 #sch.index({ 'pos.coordinates' : '2dsphere' });
 

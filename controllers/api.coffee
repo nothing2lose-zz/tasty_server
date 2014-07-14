@@ -2,12 +2,14 @@ SELF = () ->
   return module.exports
 
 module.exports = {
-  tastiesSearch:(q, coord, cb) ->
+  tastiesSearch:(q, tags, coord, cb) ->
     query = {}
-    if q.tags? and q.tags
-      query.tags = { $in: q.tags }
+#    if tags? and tags
+#      query.tags = { $in: JSON.parse(tags) }
+    if q? and q
+      query.name = q
 
-    Tasty.find(query).populate('image').exec (err, results) ->
+    Tasty.textSearch(q).populate('image').exec (err, results) ->
       cb(err, results)
   tasties: (cb) ->
     Tasty.find({}).populate('image').exec (err, results) ->

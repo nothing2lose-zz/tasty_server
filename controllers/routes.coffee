@@ -100,9 +100,10 @@ router.post '/1/tasties',  (req, res) ->
 
 router.get '/1/tasties', (req, res) ->
   q = req.param('q', null)
+  tags = req.param('tags', null)
   coord = req.param('coord', null)
-  if q?
-    api.tastiesSearch q, coord, (err, results)->
+  if tags?
+    api.tastiesSearch q, tags, coord, (err, results)->
       if err
         return res.send 500
       res.send 200, JSON.stringify(results, undefined, 4)
