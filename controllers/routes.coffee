@@ -102,7 +102,7 @@ router.get '/1/tasties', (req, res) ->
   q = req.param('q', null)
   tags = req.param('tags', null)
   coord = req.param('coord', null)
-  if tags?
+  if q?
     api.tastiesSearch q, tags, coord, (err, results)->
       if err
         return res.send 500
