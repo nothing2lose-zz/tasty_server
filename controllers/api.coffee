@@ -8,9 +8,9 @@ module.exports = {
 #      query.tags = { $in: JSON.parse(tags) }
     if q? and q
       regex = new RegExp(q, "i");
-      query["$or"] = [ { name : regex }, { desc: regex }, { tags : regex } ]#{ $or : [ { name : regex }, { desc: regex }, { tags : regex } ]};
-    console.log(query)
-    Tasty.find().populate('image').exec (err, results) ->
+      query["$or"] = [ { name : regex }, { desc: regex }, { tags : regex } ] #query = { $or : [ { name : regex }, { desc: regex }, { tags : regex } ]};
+
+    Tasty.find(query).populate('image').exec (err, results) ->
       cb(err, results)
 #    Tasty.textSearch(q).populate('image').exec (err, results) ->
 #      cb(err, results)
