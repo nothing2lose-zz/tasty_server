@@ -5,20 +5,26 @@ favicon = require('static-favicon')
 logger = require('morgan')
 cookieParser = require('cookie-parser')
 bodyParser = require('body-parser')
+methodOverride = require('method-override')
+connectMultipart = require('connect-multiparty')
 
-routes = require('./controllers/routes');
+routes = require('./controllers/routes')
 
 http      = require('http')
 fs        = require('fs')
 
-models = require('./models/tasty')
+models = require('./models/models')
 
 app = express()
 
 #app.set('json spaces',0)
 app.use(favicon());
 app.use(logger('dev'));
-app.use(bodyParser());
+app.use methodOverride()
+app.use connectMultipart()
+
+app.use bodyParser({keepExtensions:true,uploadDir:path.join(__dirname,'/image_files')});
+#app.use(bodyParser());
 #app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
