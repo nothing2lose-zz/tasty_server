@@ -8,6 +8,9 @@ bodyParser = require('body-parser')
 methodOverride = require('method-override')
 connectMultipart = require('connect-multiparty')
 
+session = require('cookie-session')
+compression = require('compression')
+
 routes = require('./controllers/routes')
 
 http      = require('http')
@@ -18,8 +21,14 @@ models = require('./models/models')
 app = express()
 
 #app.set('json spaces',0)
-app.use(favicon());
-app.use(logger('dev'));
+app.use session({
+  keys:["asodjfioasdjfoaisdjfoija", "sdj2238rhuhas9pf23"]
+  secureProxy: false
+})
+app.use compression()
+
+app.use favicon()
+app.use logger('dev')
 app.use methodOverride()
 app.use connectMultipart()
 

@@ -10,7 +10,11 @@ sch = new Schema({
   pos : { type: [Number], index: '2d'}
 #  pos: { type:{ type: String, required:true }, coordinates: {type :Array, required:true}}
   #image : { type: Schema.ObjectId, ref : "TImage", index: { unique: true, sparse: true } , 'default': null }
-  image : { type: Schema.ObjectId, ref : "TImage", index: true , 'default': null }
+  owner : { type: Schema.ObjectId, ref : "User", index: true , 'default': null }
+#  image : { type: Schema.ObjectId, ref : "TImage", index: true , 'default': null }
+  comments : [{ type: Schema.ObjectId, ref : "Comment", index: true }]
+  images : [{ type: Schema.ObjectId, ref : "TImage", index: true }]
+
 });
 
 sch.plugin(textSearch)

@@ -25,5 +25,7 @@ global.ToObjectId   = (obj_id) ->
       return ObjectId.createFromHexString(obj_id)
 
 
+global.Comment = require './comment'
+global.User = require './user'
 global.Tasty = require './tasty'
 global.TImage = require './timage'
