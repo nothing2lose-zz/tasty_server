@@ -11,8 +11,8 @@ module.exports = {
       if result and ! err
         return cb(err, result)
       else if ! err and ! result
-        console.log "======== user willbe create"
-        console.log params
+#        console.log "======== user willbe create"
+#        console.log params
         User.create params, (err, result) ->
           cb(err, result)
 
@@ -39,9 +39,9 @@ module.exports = {
       ts = tags
     user_id = ToObjectId(session.user._id)
     params = { owner: user_id, name : name, desc: desc, tags : ts, pos: pos }
-    console.log JSON.stringify(session.user, null, 4)
-    console.log "============ tasty create!"
-    console.log JSON.stringify(params, null, 4)
+#    console.log JSON.stringify(session.user, null, 4)
+#    console.log "============ tasty create!"
+#    console.log JSON.stringify(params, null, 4)
     if imageIds? and imageIds.length > 0
       images = []
       for key, val of imageIds
@@ -60,10 +60,10 @@ module.exports = {
     params = { name : name, desc: desc, tags : ts, pos: pos }
     if imageId?
       params.image = ToObjectId(imageId)
-    console.log condition
-    console.log params
+#    console.log condition
+#    console.log params
     Tasty.findOneAndUpdate condition, params, (err, result) ->
-      console.log result
+#      console.log result
       cb(err, result)
 
   tastyDelete: (id, cb) ->
