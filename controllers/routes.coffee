@@ -49,6 +49,10 @@ fs = require('fs');
 #        newImage.save (err) ->
 #          if (err) then console.log(err)
 
+router.get '/google_oauth2_callback', (req, res) ->
+  res.send 200
+
+
 router.post '/1/login', (req, res) ->
   # required params
   username = req.param('name', null)

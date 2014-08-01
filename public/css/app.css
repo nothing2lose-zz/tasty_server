@@ -1,0 +1,56 @@
+/* app css stylesheet */
+
+
+/*#map {*/
+    /*height: 800px;*/
+/*}*/
+/*.map-canvas {*/
+    /*min-width: 200px;*/
+    /*min-height:500px;*/
+    /*max-height:100%;*/
+/*}*/
+/*#map-canvas.map {*/
+    /*height: 800px;*/
+
+/*}*/
+
+/*html, body {*/
+    /*height: 100%;*/
+    /*margin: 0px;*/
+    /*padding: 0px*/
+/*}*/
+.map {
+    height: 400px;
+    width: 600px;
+    margin: auto;
+}
+
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
