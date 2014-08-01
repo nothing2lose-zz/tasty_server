@@ -20,8 +20,8 @@
     /*padding: 0px*/
 /*}*/
 .map {
-    height: 400px;
-    width: 600px;
+    height: 600px;
+    width: 800px;
     margin: auto;
 }
 
@@ -53,4 +53,33 @@
 .menu > li:nth-child(1):before {
   content: "";
   padding: 0;
+}
+
+
+#customBtn {
+    display: inline-block;
+    background: #cc3732;
+    color: white;
+    width: 175px;
+    border-radius: 5px;
+}
+#customBtn:hover {
+    background: #e74b37;
+    cursor: hand;
+}
+span.label {
+    font-weight: bold;
+}
+span.icon {
+    background: url('/+/images/branding/btn_red_32.png') transparent 10px 50% no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+}
+span.buttonText {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 40px;
+    padding-right: 40px;
 }

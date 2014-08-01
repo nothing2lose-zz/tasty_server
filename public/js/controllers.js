@@ -33,7 +33,7 @@ angular.module('Tasty.controllers',[])
                 console.log(response.data);
                 var tasties = response.data;
                 for (var key in tasties) {
-                    var item = t[key];
+                    var item = tasties[key];
                     var latlng = new google.maps.LatLng(item.pos[0], item.pos[1]);
                     $scope.myMarkers.push(new google.maps.Marker({ map: $scope.model.myMap, position: latlng }));
                 }
@@ -90,7 +90,7 @@ angular.module('Tasty.controllers',[])
 
         $scope.mapOptions = {
             center: new google.maps.LatLng($scope.lat, $scope.lng),
-            zoom: 15,
+            zoom: 13,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
